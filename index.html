@@ -1,0 +1,98 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clock For Kindle</title>
+  <style>
+    @font-face {
+      font-family: TIME;
+      src: url("time.ttf") format("truetype");
+      font-display: swap;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      width: 100%;
+      text-align: center;
+      overflow: hidden;
+      background-color: white;
+      color: black;
+    }
+
+    .app {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      /* Transform origin will be handled in JS if needed, or CSS */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      width: 100vh;
+      /* rotated width */
+      height: 100vw;
+      /* rotated height */
+    }
+
+    /* 
+       Since rotation happens via JS transform on .app, 
+       we need to ensure layout flows correctly within that rotated container.
+       However, the original code used absolute positioning and rotation.
+       Let's stick to the existing rotation logic but adjust internal layout.
+    */
+
+    .time {
+      font-family: TIME;
+      font-size: 8rem;
+      /* Large font for time */
+      margin-top: 10%;
+    }
+
+    .bottom-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 10%;
+    }
+
+    .date {
+      font-family: sans-serif;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .weather {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: sans-serif;
+      font-size: 2rem;
+    }
+
+    .weather img {
+      width: 3rem;
+      height: 3rem;
+      margin-right: 0.5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <div class="time"></div>
+    <div class="bottom-info">
+      <div class="date"></div>
+      <div class="weather">Loading...</div>
+    </div>
+  </div>
+
+  <script src="./index.js"></script>
+</body>
+
+</html>
